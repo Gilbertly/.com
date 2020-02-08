@@ -34,6 +34,6 @@ jobs:
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-secret-access-key: AWS_SECRET_KEY_ID
           aws-region: AWS_REGION
-          from: build
-          to: AWS_DEST_BUCKET
+          from: public
+          to: 's3://${AWS_DEST_BUCKET}'
           overwrite: true
