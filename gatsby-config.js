@@ -10,6 +10,7 @@ module.exports = {
       options: {
         name: 'Gilbertly.com',
         short_name: 'Gilbertly.com',
+        orientation: 'portrait',
         display: 'standalone',
         start_url: '/',
         background_color: '#e6f7ff',
