@@ -32,7 +32,7 @@ jobs:
           arguments: |
             --cache-control "max-age=86400"
           aws-access-key-id: AWS_ACCESS_KEY_ID
-          aws-secret-access-key: AWS_SECRET_KEY_ID
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           aws-region: AWS_REGION
           from: public
           to: 's3://${AWS_DEST_BUCKET}'
