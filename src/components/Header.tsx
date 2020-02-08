@@ -10,7 +10,7 @@ export const Header = ({ avatarSvg }: any) => {
       <div className="content">
         <h2>
           <b>
-            {"Hi, I'm Gilbert Gathara"}
+            {"Hi, I'm Gilbert Gathara "}
             <span role="img" aria-label="wave">
               👋🏽
             </span>
