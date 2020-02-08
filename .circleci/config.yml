@@ -1,0 +1,39 @@
+version: 2.1
+
+orbs:
+  aws-s3: circleci/aws-s3@1.0.15
+
+jobs:
+  build:
+    docker:
+      - image: 'cimg/python:3.6'
+    working_directory: ~/gilbertly
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+
+      - run:
+          name: Test and Build
+          command: npm run test:build
+
+      - aws-s3/sync:
+          arguments: |
+            --cache-control "max-age=86400"
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_SECRET_KEY_ID
+          aws-region: AWS_REGION
+          from: build
+          to: AWS_DEST_BUCKET
+          overwrite: true
