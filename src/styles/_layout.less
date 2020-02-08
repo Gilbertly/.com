@@ -1,0 +1,18 @@
+.page-index {
+  display: grid;
+  grid-template-columns: minmax(20rem, 1fr);
+  grid-gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (min-width: 575.99px) {
+  .page-index {
+    grid-template-columns: 1fr 10fr 1fr;
+    justify-content: center;
+
+    .section-header {
+      grid-column: 2 / span 1;
+    }
+  }
+}

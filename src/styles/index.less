@@ -1,0 +1,25 @@
+// Ant.design Styles to Override:
+// https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
+@import '~antd/dist/antd.less';
+
+// Colors
+@dark-background: #070707;
+@dark-foreground: #575c6a;
+@blue-1: #e6f7ff;
+
+// Typography
+@import (css)
+  url('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap');
+@font-family: 'Poppins', 'sans-serif';
+
+// Layout Styles
+@import './_layout.less';
+
+// Component Styles
+@import './components/header.less';
+
+body {
+  max-width: 978px;
+  margin: 0 auto;
+  background-color: @dark-background;
+}
