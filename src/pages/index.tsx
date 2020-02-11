@@ -2,6 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { Header } from '../components/Header';
 import { FrontendSkillset } from '../components/FrontendSkillset';
+import { Footer } from '../components/Footer';
 
 const IndexPage = (props: any) => {
   const avatarSvg = props.data.avatarSvg.publicURL;
@@ -11,6 +12,7 @@ const IndexPage = (props: any) => {
     <div className="page-index">
       <Header avatarSvg={avatarSvg} />
       <FrontendSkillset frontendIcons={frontendIcons} />
+      <Footer />
     </div>
   );
 };
