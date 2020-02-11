@@ -4,6 +4,7 @@ interface SocialProps {
   name: string;
   url: string;
   alt: string;
+  link: string;
 }
 
 export const Socials = ({ socialIcons }: any) => {
@@ -17,6 +18,7 @@ export const Socials = ({ socialIcons }: any) => {
         name: 'Email',
         url: iconURL,
         alt: 'Email Icon',
+        link: '',
       });
     }
     if (iconURL.includes('social-github')) {
@@ -24,6 +26,7 @@ export const Socials = ({ socialIcons }: any) => {
         name: 'Github',
         url: iconURL,
         alt: 'Github Icon',
+        link: 'https://github.com/Gilbertly',
       });
     }
     if (iconURL.includes('social-dribbble')) {
@@ -31,6 +34,7 @@ export const Socials = ({ socialIcons }: any) => {
         name: 'Dribble',
         url: iconURL,
         alt: 'Dribbble Icon',
+        link: 'https://dribbble.com/gilbertly/buckets',
       });
     }
     if (iconURL.includes('social-keybase')) {
@@ -38,6 +42,7 @@ export const Socials = ({ socialIcons }: any) => {
         name: 'Keybase',
         url: iconURL,
         alt: 'Keybase Icon',
+        link: 'https://keybase.io/gilbertly',
       });
     }
     if (iconURL.includes('social-twitter')) {
@@ -45,6 +50,7 @@ export const Socials = ({ socialIcons }: any) => {
         name: 'Twitter',
         url: iconURL,
         alt: 'Twitter Icon',
+        link: 'https://twitter.com/GilbertGathara',
       });
     }
     if (iconURL.includes('social-linkedin')) {
@@ -52,6 +58,7 @@ export const Socials = ({ socialIcons }: any) => {
         name: 'LinkedIn',
         url: iconURL,
         alt: 'LinkedIn Icon',
+        link: 'https://www.linkedin.com/in/gilbert-gathara/',
       });
     }
     if (iconURL.includes('social-kaggle')) {
@@ -59,6 +66,7 @@ export const Socials = ({ socialIcons }: any) => {
         name: 'Kaggle',
         url: iconURL,
         alt: 'Kaggle Icon',
+        link: 'https://www.kaggle.com/gilbertly',
       });
     }
     if (iconURL.includes('social-producthunt')) {
@@ -66,17 +74,18 @@ export const Socials = ({ socialIcons }: any) => {
         name: 'ProductHunt',
         url: iconURL,
         alt: 'ProductHunt Icon',
+        link: 'https://www.producthunt.com/@gilbertgathara',
       });
     }
   });
 
   const socialset = socials.map(social => (
-    <div className="social" key={social.alt}>
+    <a className="social" key={social.alt} href={social.link}>
       <div className="icon">
         <img src={social.url} alt={social.alt} />
       </div>
       <h4>{social.name}</h4>
-    </div>
+    </a>
   ));
 
   return (
