@@ -31,5 +31,8 @@ module.exports = {
       },
     },
     'gatsby-plugin-react-helmet',
+    'gatsby-image',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
   ],
 };
