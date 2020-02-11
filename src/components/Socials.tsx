@@ -20,56 +20,49 @@ export const Socials = ({ socialIcons }: any) => {
         alt: 'Email Icon',
         link: '',
       });
-    }
-    if (iconURL.includes('social-github')) {
+    } else if (iconURL.includes('social-github')) {
       socials.push({
         name: 'Github',
         url: iconURL,
         alt: 'Github Icon',
         link: 'https://github.com/Gilbertly',
       });
-    }
-    if (iconURL.includes('social-dribbble')) {
+    } else if (iconURL.includes('social-dribbble')) {
       socials.push({
         name: 'Dribble',
         url: iconURL,
         alt: 'Dribbble Icon',
         link: 'https://dribbble.com/gilbertly/buckets',
       });
-    }
-    if (iconURL.includes('social-keybase')) {
+    } else if (iconURL.includes('social-keybase')) {
       socials.push({
         name: 'Keybase',
         url: iconURL,
         alt: 'Keybase Icon',
         link: 'https://keybase.io/gilbertly',
       });
-    }
-    if (iconURL.includes('social-twitter')) {
+    } else if (iconURL.includes('social-twitter')) {
       socials.push({
         name: 'Twitter',
         url: iconURL,
         alt: 'Twitter Icon',
         link: 'https://twitter.com/GilbertGathara',
       });
-    }
-    if (iconURL.includes('social-linkedin')) {
+    } else if (iconURL.includes('social-linkedin')) {
       socials.push({
         name: 'LinkedIn',
         url: iconURL,
         alt: 'LinkedIn Icon',
         link: 'https://www.linkedin.com/in/gilbert-gathara/',
       });
-    }
-    if (iconURL.includes('social-kaggle')) {
+    } else if (iconURL.includes('social-kaggle')) {
       socials.push({
         name: 'Kaggle',
         url: iconURL,
         alt: 'Kaggle Icon',
         link: 'https://www.kaggle.com/gilbertly',
       });
-    }
-    if (iconURL.includes('social-producthunt')) {
+    } else if (iconURL.includes('social-producthunt')) {
       socials.push({
         name: 'ProductHunt',
         url: iconURL,
