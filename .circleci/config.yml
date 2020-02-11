@@ -37,3 +37,12 @@ jobs:
           from: public
           to: 's3://${AWS_DEST_BUCKET}'
           overwrite: true
+
+      - run:
+          name: Install AWS Cli
+          command: sudo apt-get -y -qq install awscli
+
+      - run:
+          name: Invalidate Cloudfront Cache
+          command: |
+            aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DIST_ID} --paths '/*'
