@@ -80,7 +80,13 @@ export const Socials = ({ socialIcons }: any) => {
   });
 
   const socialset = socials.map(social => (
-    <a className="social" key={social.alt} href={social.link}>
+    <a
+      className="social"
+      key={social.alt}
+      href={social.link}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <div className="icon">
         <img src={social.url} alt={social.alt} />
       </div>
