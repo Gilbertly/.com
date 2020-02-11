@@ -18,7 +18,7 @@ export const Socials = ({ socialIcons }: any) => {
         name: 'Email',
         url: iconURL,
         alt: 'Email Icon',
-        link: '',
+        link: 'mailto:hello.gilbertly@gmail.com',
       });
     } else if (iconURL.includes('social-github')) {
       socials.push({
