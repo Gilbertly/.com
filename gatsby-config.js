@@ -15,6 +15,7 @@ module.exports = {
         start_url: '/',
         background_color: '#e6f7ff',
         theme_color: '#e6f7ff',
+        icon: 'src/assets/img/avatarProfile.png',
       },
     },
     {
