@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Button } from 'antd';
 
-export const Header = ({ avatarSvg }: any) => {
+export const Header = ({ avatarProfile }: any) => {
   return (
     <section className="section-header">
       <div className="avatar">
-        <img src={avatarSvg} alt="Gilbert Gathara" />
+        <img src={avatarProfile} alt="Gilbert Gathara" />
       </div>
       <div className="content">
         <h2>
