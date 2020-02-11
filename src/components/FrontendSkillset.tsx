@@ -1,14 +1,8 @@
 import * as React from 'react';
-import { Skill } from './Skill';
-
-interface Skill {
-  name: string;
-  url: string;
-  alt: string;
-}
+import { Skill, SkillProps } from './Skill';
 
 export const FrontendSkillset = ({ frontendIcons }: any) => {
-  const skills: Skill[] = [];
+  const skills: SkillProps[] = [];
 
   frontendIcons.map((frontendIcon: any) => {
     const iconURL = frontendIcon.node.childImageSharp.fluid.src;

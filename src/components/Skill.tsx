@@ -1,5 +1,11 @@
 import * as React from 'react';
 
+export interface SkillProps {
+  name: string;
+  url: string;
+  alt: string;
+}
+
 export const Skill = ({ skillName, skillURL, skillAlt }: any) => {
   return (
     <div className="skill">
