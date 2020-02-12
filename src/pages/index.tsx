@@ -6,6 +6,7 @@ import { Header } from '../components/Header';
 import { Socials } from '../components/Socials';
 import { FrontendSkillset } from '../components/FrontendSkillset';
 import { BackendSkillset } from '../components/BackendSkillset';
+import { DataSkillset } from '../components/DataSkillset';
 import { Footer } from '../components/Footer';
 
 const IndexPage = (props: any) => {
@@ -14,6 +15,7 @@ const IndexPage = (props: any) => {
   const frontendIcons = props.data.frontendIcons.edges;
   const backendIcons = props.data.backendIcons.edges;
   const backendAWSIcons = props.data.backendAWSIcons.edges;
+  const dataIcons = props.data.dataIcons.edges;
 
   return (
     <div className="page-index">
@@ -30,6 +32,7 @@ const IndexPage = (props: any) => {
       <Socials socialIcons={socialIcons} />
       <FrontendSkillset frontendIcons={frontendIcons} />
       <BackendSkillset backendIcons={backendIcons} awsIcons={backendAWSIcons} />
+      <DataSkillset dataIcons={dataIcons} />
       <Footer />
     </div>
   );
@@ -82,6 +85,17 @@ export const pageQuery = graphql`
     backendAWSIcons: allFile(
       filter: { absolutePath: { regex: "/(be-aws-)/" } }
     ) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 22, maxHeight: 22) {
+              src
+            }
+          }
+        }
+      }
+    }
+    dataIcons: allFile(filter: { absolutePath: { regex: "/(data-)/" } }) {
       edges {
         node {
           childImageSharp {
