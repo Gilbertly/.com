@@ -15,7 +15,7 @@ export const Socials = ({ socialIcons }: any) => {
 
     if (iconURL.includes('social-mail')) {
       socials.push({
-        name: 'Email',
+        name: 'hello.gilbertly@gmail.com',
         url: iconURL,
         alt: 'Email Icon',
         link: 'mailto:hello.gilbertly@gmail.com',
