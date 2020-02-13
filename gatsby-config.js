@@ -8,13 +8,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Gilbertly.com',
-        short_name: 'Gilbertly.com',
+        name: 'Gilbertly Portfolio',
+        short_name: 'Gilbertly',
         orientation: 'portrait',
         display: 'standalone',
         start_url: '/',
-        background_color: '#e6f7ff',
-        theme_color: '#e6f7ff',
+        background_color: '#f5f5f5',
+        theme_color: '#070707',
         icon: 'src/assets/img/avatarProfile.png',
       },
     },
