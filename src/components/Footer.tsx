@@ -7,7 +7,7 @@ export const Footer = ({ props }: any) => {
         <span role="img" aria-label="wave">
           ⓒ
         </span>
-        {' 2020, Gilbert Gathara'}
+        {' 2020, Gilbert Gathara. All Rights Reserved.'}
       </h4>
     </section>
   );
