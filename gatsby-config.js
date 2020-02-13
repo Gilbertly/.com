@@ -18,6 +18,7 @@ module.exports = {
         icon: 'src/assets/img/avatarProfile.png',
       },
     },
+    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-less',
       options: {
