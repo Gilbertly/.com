@@ -3,7 +3,7 @@ import './src/styles/index.less';
 
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(`
-    This application Gilbertly.com has been updated.
+    This application has been updated.
     Reload to display the latest version?
   `);
   if (answer === true) {
