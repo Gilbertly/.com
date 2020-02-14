@@ -98,6 +98,13 @@ export const DataSkillset = ({ dataIcons }: any) => {
         alt: 'AWS Sagemaker Icon',
       });
     }
+    if (iconURL.includes('data-glue')) {
+      skills.push({
+        name: 'AWS Glue ETL',
+        url: iconURL,
+        alt: 'AWS Glue ETL Icon',
+      });
+    }
     if (iconURL.includes('data-xgboost')) {
       skills.push({
         name: 'XGBoost',
