@@ -78,6 +78,13 @@ export const BackendSkillset = ({ backendIcons, awsIcons }: any) => {
         alt: 'Cypress Icon',
       });
     }
+    if (iconURL.includes('be-svc-docker')) {
+      backendSkills.push({
+        name: 'Docker',
+        url: iconURL,
+        alt: 'Docker Icon',
+      });
+    }
   });
 
   awsIcons.map((awsIcon: any) => {
