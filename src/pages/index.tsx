@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 
 import { Header } from '../components/Header';
 import { Socials } from '../components/Socials';
+import { AboutMe } from '../components/AboutMe';
 import { FrontendSkillset } from '../components/FrontendSkillset';
 import { BackendSkillset } from '../components/BackendSkillset';
 import { DataSkillset } from '../components/DataSkillset';
@@ -30,6 +31,7 @@ const IndexPage = (props: any) => {
       </Helmet>
       <Header avatarProfile={avatarProfile} />
       <Socials socialIcons={socialIcons} />
+      <AboutMe />
       <FrontendSkillset frontendIcons={frontendIcons} />
       <BackendSkillset backendIcons={backendIcons} awsIcons={backendAWSIcons} />
       <DataSkillset dataIcons={dataIcons} />
