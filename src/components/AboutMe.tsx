@@ -16,7 +16,7 @@ export const AboutMe = ({ props }: any) => {
       <h3>{`
       Nowadays my time and responsibilities are split between learning how to effectively become an
       IndieMaker, demystifying predictions from data models, and catching-up with family/friends. I'm
-      open for new opportunities and experiences.
+      open for new opportunities and experiences. Potato.
       `}</h3>
     </section>
   );
