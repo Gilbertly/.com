@@ -27,13 +27,6 @@ export const Socials = ({ socialIcons }: any) => {
         alt: 'Github Icon',
         link: 'https://github.com/Gilbertly',
       });
-    } else if (iconURL.includes('social-dribbble')) {
-      socials.push({
-        name: 'Dribble',
-        url: iconURL,
-        alt: 'Dribbble Icon',
-        link: 'https://dribbble.com/gilbertly/buckets',
-      });
     } else if (iconURL.includes('social-keybase')) {
       socials.push({
         name: 'Keybase',
@@ -61,13 +54,6 @@ export const Socials = ({ socialIcons }: any) => {
         url: iconURL,
         alt: 'Kaggle Icon',
         link: 'https://www.kaggle.com/gilbertly',
-      });
-    } else if (iconURL.includes('social-producthunt')) {
-      socials.push({
-        name: 'ProductHunt',
-        url: iconURL,
-        alt: 'ProductHunt Icon',
-        link: 'https://www.producthunt.com/@gilbertgathara',
       });
     }
   });
