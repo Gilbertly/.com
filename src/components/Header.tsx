@@ -20,10 +20,11 @@ export const Header = ({ avatarProfile }: any) => {
       <div className="content">
         <h2>
           <b>
-            {"Hi, I'm Gilbert Gathara "}
+            {'Hi '}
             <span role="img" aria-label="wave">
               👋🏽
             </span>
+            {", I'm Gilbert Gathara"}
           </b>
         </h2>
         <h3>
