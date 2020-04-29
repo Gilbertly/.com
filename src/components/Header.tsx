@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Button, notification, Icon } from 'antd';
+import { Button, notification } from 'antd';
+import { SmileOutlined, FilePdfOutlined } from '@ant-design/icons';
 
 export const Header = ({ avatarProfile }: any) => {
   const openNotification = () => {
@@ -8,7 +9,7 @@ export const Header = ({ avatarProfile }: any) => {
       description: `
       Great! Love the enthusiasm. However right now I'm in the process of
       updating my skillset projects and my resume needs a clean refresh.`,
-      icon: <Icon type="smile" />,
+      icon: <SmileOutlined />,
       duration: 10,
     });
   };
@@ -32,7 +33,11 @@ export const Header = ({ avatarProfile }: any) => {
           infrastructure healthy for production apps & machine learning models
           on AWS.
         </h3>
-        <Button type="primary" icon="file-pdf" onClick={openNotification}>
+        <Button
+          type="primary"
+          icon={<FilePdfOutlined />}
+          onClick={openNotification}
+        >
           Request Resume
         </Button>
       </div>
