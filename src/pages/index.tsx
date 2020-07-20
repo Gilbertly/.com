@@ -11,7 +11,6 @@ import { DataSkillset } from '../components/DataSkillset';
 import { Footer } from '../components/Footer';
 
 const IndexPage = (props: any) => {
-  const avatarProfile = props.data.avatarProfile.childImageSharp.fluid.src;
   const socialIcons = props.data.socialIcons.edges;
   const frontendIcons = props.data.frontendIcons.edges;
   const backendIcons = props.data.backendIcons.edges;
@@ -29,7 +28,7 @@ const IndexPage = (props: any) => {
         />
         <link rel="canonical" href="https://gilbertly.com/" />
       </Helmet>
-      <Header avatarProfile={avatarProfile} />
+      <Header />
       <Socials socialIcons={socialIcons} />
       <AboutMe />
       <FrontendSkillset frontendIcons={frontendIcons} />
@@ -44,13 +43,6 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   query IndexPageQuery {
-    avatarProfile: file(relativePath: { eq: "img/avatarProfile.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 112, maxHeight: 112) {
-          src
-        }
-      }
-    }
     socialIcons: allFile(filter: { absolutePath: { regex: "/(social-)/" } }) {
       edges {
         node {

@@ -1,22 +1,24 @@
 import * as React from 'react';
-import { Button, notification } from 'antd';
-import { SmileOutlined, FilePdfOutlined } from '@ant-design/icons';
+import { useStaticQuery, graphql } from 'gatsby';
 
-export const Header = ({ avatarProfile }: any) => {
-  const openNotification = () => {
-    notification.open({
-      message: 'Resume Request',
-      description: `
-      Great! Love the enthusiasm. However right now I'm in the process of
-      updating my skillset projects and my resume needs a clean refresh.`,
-      icon: <SmileOutlined />,
-      duration: 10,
-    });
-  };
+export const Header = () => {
+  const data = useStaticQuery(graphql`
+    query avatarProfile {
+      avatarProfileIcon: file(relativePath: { eq: "img/avatarProfile.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 112, maxHeight: 112, quality: 100) {
+            src
+          }
+        }
+      }
+    }
+  `);
+  const avatarProfileIcon = data.avatarProfileIcon.childImageSharp.fluid.src;
+
   return (
     <section className="section-header">
       <div className="avatar">
-        <img src={avatarProfile} alt="Gilbert Gathara" />
+        <img src={avatarProfileIcon} alt="Gilbert Gathara" />
       </div>
       <div className="content">
         <h2>
@@ -33,13 +35,6 @@ export const Header = ({ avatarProfile }: any) => {
           infrastructure healthy for production apps & machine learning models
           on AWS.
         </h3>
-        <Button
-          type="primary"
-          icon={<FilePdfOutlined />}
-          onClick={openNotification}
-        >
-          Request Resume
-        </Button>
       </div>
     </section>
   );
