@@ -1,12 +1,24 @@
 import * as React from 'react';
-import { notification } from 'antd';
-import { SmileOutlined } from '@ant-design/icons';
+import { useStaticQuery, graphql } from 'gatsby';
 
-export const Header = ({ avatarProfile }: any) => {
+export const Header = () => {
+  const data = useStaticQuery(graphql`
+    query avatarProfile {
+      avatarProfileIcon: file(relativePath: { eq: "img/avatarProfile.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 112, maxHeight: 112, quality: 100) {
+            src
+          }
+        }
+      }
+    }
+  `);
+  const avatarProfileIcon = data.avatarProfileIcon.childImageSharp.fluid.src;
+
   return (
     <section className="section-header">
       <div className="avatar">
-        <img src={avatarProfile} alt="Gilbert Gathara" />
+        <img src={avatarProfileIcon} alt="Gilbert Gathara" />
       </div>
       <div className="content">
         <h2>
