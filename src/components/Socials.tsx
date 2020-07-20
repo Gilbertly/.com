@@ -13,14 +13,7 @@ export const Socials = ({ socialIcons }: any) => {
   socialIcons.map((socialIcon: any) => {
     const iconURL = socialIcon.node.childImageSharp.fluid.src;
 
-    if (iconURL.includes('social-mail')) {
-      socials.push({
-        name: 'hello.gilbertly@gmail.com',
-        url: iconURL,
-        alt: 'Email Icon',
-        link: 'mailto:hello.gilbertly@gmail.com',
-      });
-    } else if (iconURL.includes('social-github')) {
+    if (iconURL.includes('social-github')) {
       socials.push({
         name: 'Github',
         url: iconURL,
@@ -39,7 +32,7 @@ export const Socials = ({ socialIcons }: any) => {
         name: 'Twitter',
         url: iconURL,
         alt: 'Twitter Icon',
-        link: 'https://twitter.com/GilbertGathara',
+        link: 'https://twitter.com/_gilbertly',
       });
     } else if (iconURL.includes('social-linkedin')) {
       socials.push({
