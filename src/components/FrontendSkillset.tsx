@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Skill, SkillProps } from './Skill';
 
-export const FrontendSkillset = ({ frontendIcons }: any) => {
+export const FrontendSkillset = (frontendIcons: []) => {
   const skills: SkillProps[] = [];
 
   frontendIcons.map((frontendIcon: any) => {
@@ -87,12 +87,7 @@ export const FrontendSkillset = ({ frontendIcons }: any) => {
   });
 
   const skillset = skills.map(skill => (
-    <Skill
-      skillName={skill.name}
-      skillURL={skill.url}
-      skillAlt={skill.alt}
-      key={skill.url}
-    />
+    <Skill name={skill.name} url={skill.url} alt={skill.alt} key={skill.url} />
   ));
 
   return (

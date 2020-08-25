@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Skill, SkillProps } from './Skill';
 
-export const BackendSkillset = ({ backendIcons, awsIcons }: any) => {
+export const BackendSkillset = (backendIcons: [], awsIcons: []) => {
   const backendSkills: SkillProps[] = [];
   const awsSkills: SkillProps[] = [];
 
@@ -205,21 +205,11 @@ export const BackendSkillset = ({ backendIcons, awsIcons }: any) => {
   });
 
   const backendSkillset = backendSkills.map(skill => (
-    <Skill
-      skillName={skill.name}
-      skillURL={skill.url}
-      skillAlt={skill.alt}
-      key={skill.url}
-    />
+    <Skill name={skill.name} url={skill.url} alt={skill.alt} key={skill.url} />
   ));
 
   const awsSkillset = awsSkills.map(skill => (
-    <Skill
-      skillName={skill.name}
-      skillURL={skill.url}
-      skillAlt={skill.alt}
-      key={skill.url}
-    />
+    <Skill name={skill.name} url={skill.url} alt={skill.alt} key={skill.url} />
   ));
 
   return (
