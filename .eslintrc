@@ -25,18 +25,14 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "prettier/prettier": [
-      "error",
-      {
-        "trailingComma": "all",
-        "tabWidth": 2,
-        "useTabs": false,
-        "semi": true,
-        "arrowParens": "avoid",
-        "singleQuote": true
-      }
-    ]
+    "prettier/prettier": ["error", {
+      "trailingComma": "all",
+      "tabWidth": 2,
+      "useTabs": false,
+      "semi": true,
+      "arrowParens": "avoid",
+      "singleQuote": true
+    }]
   },
   "plugins": ["prettier", "react", "react-hooks"],
   "env": {
