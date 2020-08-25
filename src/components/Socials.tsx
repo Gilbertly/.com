@@ -7,7 +7,7 @@ interface SocialProps {
   link: string;
 }
 
-export const Socials = (socialIcons: []) => {
+export const Socials = ({ socialIcons }: any) => {
   const socials: SocialProps[] = [];
 
   socialIcons.map((socialIcon: any) => {

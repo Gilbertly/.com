@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Skill, SkillProps } from './Skill';
 
-export const BackendSkillset = (backendIcons: [], awsIcons: []) => {
+export const BackendSkillset = ({ backendIcons, awsIcons }: any) => {
   const backendSkills: SkillProps[] = [];
   const awsSkills: SkillProps[] = [];
 

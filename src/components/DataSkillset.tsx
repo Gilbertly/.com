@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Skill, SkillProps } from './Skill';
 
-export const DataSkillset = (dataIcons: []) => {
+export const DataSkillset = ({ dataIcons }: any) => {
   const skills: SkillProps[] = [];
 
   dataIcons.map((dataIcon: any) => {

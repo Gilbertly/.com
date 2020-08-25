@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Skill, SkillProps } from './Skill';
 
-export const FrontendSkillset = (frontendIcons: []) => {
+export const FrontendSkillset = ({ frontendIcons }: any) => {
   const skills: SkillProps[] = [];
 
   frontendIcons.map((frontendIcon: any) => {
