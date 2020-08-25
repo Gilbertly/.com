@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-export const Footer = ({ props }: any) => {
+export const Footer = () => {
   const data = useStaticQuery(graphql`
     query FooterQuery {
       site {
