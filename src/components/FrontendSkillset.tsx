@@ -87,12 +87,7 @@ export const FrontendSkillset = ({ frontendIcons }: any) => {
   });
 
   const skillset = skills.map(skill => (
-    <Skill
-      skillName={skill.name}
-      skillURL={skill.url}
-      skillAlt={skill.alt}
-      key={skill.url}
-    />
+    <Skill name={skill.name} url={skill.url} alt={skill.alt} key={skill.url} />
   ));
 
   return (

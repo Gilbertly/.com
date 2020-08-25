@@ -6,14 +6,14 @@ export interface SkillProps {
   alt: string;
 }
 
-export const Skill = ({ skillName, skillURL, skillAlt }: any) => {
+export const Skill = ({ name, url, alt }: SkillProps) => {
   return (
     <div className="skill">
       <div className="icon">
-        <img src={skillURL} alt={skillAlt} />
+        <img src={url} alt={alt} />
       </div>
       <div className="content">
-        <h4>{skillName}</h4>
+        <h4>{name}</h4>
       </div>
     </div>
   );
