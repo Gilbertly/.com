@@ -1,33 +1,68 @@
 version: 2.1
-
 orbs:
-  aws-s3: circleci/aws-s3@1.0.15
+  aws-s3: circleci/aws-s3@2.0.0
+
+refs:
+  container_config: &container_config
+    docker:
+      - image: circleci/node:12
+    working_directory: ~/app
+  steps:
+    - &install_dependencies
+      run:
+        name: Install Dependencies
+        command: |
+          sudo apt-get -y -qq install awscli
+          npm install
+    - &save_cache
+      save_cache:
+        paths:
+          - node_modules
+        key: v1-dependencies-{{ checksum "package.json" }}
+    - &restore_cache
+      restore_cache:
+        keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+    - &persist_workspace
+      persist_to_workspace:
+        root: ./
+        paths:
+          - ./
+    - &attach_workspace
+      attach_workspace:
+        at: ~/app
+    - &test_build
+      run:
+        name: Build Assets
+        command: npm run test:build
+    - &semantic_release
+      run:
+        name: Semantic Release
+        command: |
+          export NPM_TOKEN=${NPM_TOKEN}
+          export GH_TOKEN=${GH_TOKEN}
+          export GIT_AUTHOR_NAME=${GIT_AUTHOR_NAME}
+          export GIT_AUTHOR_EMAIL=${GIT_AUTHOR_EMAIL}
+          export GIT_COMMITTER_NAME=${GIT_COMMITTER_NAME}
+          export GIT_COMMITTER_EMAIL=${GIT_COMMITTER_EMAIL}
+          npx semantic-release
 
 jobs:
   build:
-    docker:
-      - image: circleci/node:10
-    working_directory: ~/gilbertly
+    <<: *container_config
     steps:
       - checkout
-      - run:
-          name: Install Dependencies
-          command: npm install
+      - *install_dependencies
+      - *save_cache
+      - *restore_cache
+      - *test_build
+      - *persist_workspace
 
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
-
-      - run:
-          name: Test and Build
-          command: npm run test:build
-
+  deploy_dev:
+    <<: *container_config
+    steps:
+      - *attach_workspace
       - aws-s3/sync:
           arguments: |
             --cache-control "max-age=86400"
@@ -35,14 +70,49 @@ jobs:
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           aws-region: AWS_REGION
           from: public
-          to: 's3://${AWS_DEST_BUCKET}'
+          to: s3://${AWS_DEST_BUCKET}
           overwrite: true
-
-      - run:
-          name: Install AWS Cli
-          command: sudo apt-get -y -qq install awscli
-
       - run:
           name: Invalidate Cloudfront Cache
           command: |
             aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DIST_ID} --paths '/*'
+
+  deploy_prod:
+    <<: *container_config
+    steps:
+      - *attach_workspace
+      - aws-s3/sync:
+          arguments: |
+            --cache-control "max-age=86400"
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          aws-region: AWS_REGION
+          from: public
+          to: s3://${AWS_DEST_BUCKET}
+          overwrite: true
+      - run:
+          name: Invalidate Cloudfront Cache
+          command: |
+            aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DIST_ID} --paths '/*'
+
+workflows:
+  version: 2
+  build_deploy:
+    jobs:
+      - build
+      - deploy_dev:
+          filters:
+            branches:
+              only:
+                - develop
+          requires:
+            - build
+          context: dev-gilbertly-com
+      - deploy_prod:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - build
+          context: prod-gilbertly-com
