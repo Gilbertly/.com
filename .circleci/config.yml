@@ -45,7 +45,6 @@ refs:
         aws-region: AWS_REGION
         from: public
         to: s3://${AWS_DEST_BUCKET}
-        overwrite: true
     - &invalidate_cdn_cache
       run:
         name: Invalidate CloudFront Cache
