@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/Gilbertly/.com/compare/v1.1.1...v1.2.0) (2021-01-17)
+
+
+### Bug Fixes
+
+* add newline character for multiple args ([447d12b](https://github.com/Gilbertly/.com/commit/447d12bcf472d5a18364990bba0f7b6c8f11455c))
+* overwrite sync'ed files on s3 bucket ([e8fec6f](https://github.com/Gilbertly/.com/commit/e8fec6f1e906f7a61ee15b7a451a10c680662571))
+
 ## [1.1.1](https://github.com/Gilbertly/.com/compare/v1.1.0...v1.1.1) (2021-01-17)
 
 ## Semantic Release Auto-Changelog
