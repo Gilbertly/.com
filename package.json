@@ -6,6 +6,7 @@
   "scripts": {
     "build:dev": "GIT_HASH=$(git rev-parse --short HEAD) gatsby develop",
     "build:prod": "GIT_HASH=$(git rev-parse --short HEAD) gatsby build",
+    "zip:assets": "zip -qr public.zip ./public",
     "build:serve": "gatsby serve",
     "lint:fix": "eslint './src/**/*.{ts,tsx}' --fix",
     "test:build": "npm audit fix && npm run build:prod"
