@@ -1,3 +1,5 @@
+## [1.1.1](https://github.com/Gilbertly/.com/compare/v1.1.0...v1.1.1) (2021-01-17)
+
 ## Semantic Release Auto-Changelog
 
 # [1.1.0](https://github.com/Gilbertly/.com/compare/v1.0.0...v1.1.0) (2021-01-17)
