@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@personal:gilbertly/.com"
+    "url": "git+https://github.com/Gilbertly/.com.git"
   },
   "author": "Gilbert Gathara",
   "license": "MIT",
