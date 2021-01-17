@@ -1,3 +1,12 @@
+## Semantic Release Auto-Changelog
+
+# [1.1.0](https://github.com/Gilbertly/.com/compare/v1.0.0...v1.1.0) (2021-01-17)
+
+
+### Bug Fixes
+
+* zip github public assets before upload ([d08999c](https://github.com/Gilbertly/.com/commit/d08999cd228cbee159f9ec035f5e27a4dfa865a8))
+
 Semantic Release Auto-Changelog
 
 # 1.0.0 (2021-01-17)
