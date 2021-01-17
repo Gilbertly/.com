@@ -16,7 +16,7 @@
     [
       "@semantic-release/changelog", {
         "changelogFile": ".github/CHANGELOG.md",
-        "changelogTitle": "Semantic Release Auto-Changelog"
+        "changelogTitle": "## Semantic Release Auto-Changelog"
       }
     ],
     [
@@ -30,7 +30,7 @@
           {
             "name": "v${nextRelease.version}",
             "label": "v${nextRelease.version}",
-            "path": "public/**"
+            "path": "public.zip"
           }
         ]
       }

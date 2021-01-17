@@ -54,6 +54,7 @@ refs:
         name: Semantic Release
         command: |
           export GH_TOKEN=${GH_TOKEN}
+          npm run zip:assets
           npx semantic-release
 
 jobs:
