@@ -39,7 +39,7 @@ refs:
     - &sync_build_assets
       aws-s3/sync:
         arguments: |
-          --cache-control "max-age=86400"
+          --cache-control "max-age=86400" \
           --delete
         aws-access-key-id: AWS_ACCESS_KEY_ID
         aws-secret-access-key: AWS_SECRET_ACCESS_KEY
