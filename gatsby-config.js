@@ -2,7 +2,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Gilbertly.com',
-    commit: `Commit #${process.env.GIT_HASH || 'potato'}`,
+    gitHash: process.env.GIT_HASH || 'potato',
   },
   plugins: [
     'gatsby-plugin-typescript',

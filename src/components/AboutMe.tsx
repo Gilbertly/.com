@@ -7,11 +7,14 @@ export const AboutMe = () => {
       <h3>{`
       I am a software engineer with an experience in end-to-end projects, based in Nairobi, Kenya.
       `}</h3>
-      <h3>{`
+      <h3>
+        {`
       Nowadays my time and responsibilities are split between learning how to effectively become an
       IndieMaker, demystifying predictions from data models, and catching-up with family/friends.
-      `}<span className="strikethrough">{'potato'}</span></h3>
-      <h3>{`Currently I am building serverless-first backends with JAMStack.`}</h3>
+      `}
+        <span className="strikethrough">{'potato'}</span>
+      </h3>
+      <h3>{`Currently building serverless-first backends with JAMStack.`}</h3>
     </section>
   );
 };

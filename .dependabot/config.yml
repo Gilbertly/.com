@@ -2,7 +2,7 @@ version: 1
 update_configs:
   - package_manager: javascript
     directory: /
-    update_schedule: daily
+    update_schedule: weekly
     default_reviewers:
       - gilbertly
     default_labels:
@@ -15,9 +15,9 @@ update_configs:
           dependency_type: 'all'
           update_type: 'security'
     automerged_updates:
-      - match: # automerge prod minor updates (1.0.x - 1.2.x)
-          dependency_type: 'production'
-          update_type: 'semver:minor'
+      - match: # automerge all patch updates (1.0.x - 1.2.x)
+          dependency_type: 'all'
+          update_type: 'semver:patch'
       - match: # automerge all security patch updates
           dependency_type: 'all'
           update_type: 'security:patch'
