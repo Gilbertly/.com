@@ -1,3 +1,5 @@
+## [1.2.9](https://github.com/Gilbertly/.com/compare/v1.2.8...v1.2.9) (2021-03-15)
+
 ## [1.2.8](https://github.com/Gilbertly/.com/compare/v1.2.7...v1.2.8) (2021-03-08)
 
 ## [1.2.7](https://github.com/Gilbertly/.com/compare/v1.2.6...v1.2.7) (2021-03-02)
