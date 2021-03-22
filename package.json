@@ -25,7 +25,7 @@
     }
   },
   "dependencies": {
-    "@ant-design/icons": "^4.4.0",
+    "@ant-design/icons": "^4.6.2",
     "antd": "^4.10.3",
     "gatsby": "^2.32.11",
     "gatsby-source-filesystem": "^2.11.1",
