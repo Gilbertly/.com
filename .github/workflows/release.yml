@@ -1,0 +1,65 @@
+name: release
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Test and Build Assets
+        run: npm run test:build
+
+  deployDev:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+    steps:
+      - name: Configure AWS Dev credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.DEV_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEV_AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.DEV_AWS_REGION }}
+
+      - name: Sync Built Assets To S3
+        env:
+          AWS_DEST_BUCKET: ${{ secrets.DEV_AWS_DEST_BUCKET }}
+        run: aws s3 sync public s3://$AWS_DEST_BUCKET --cache-control "max-age=86400" --delete
+
+      - name: Invalidate CloudFront Cache
+        env:
+          CLOUDFRONT_DIST_ID: ${{ secrets.DEV_CLOUDFRONT_DIST_ID }}
+        run: aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID --paths '/*'
+
+  deployProd:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Configure AWS Prod credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.PROD_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.PROD_AWS_REGION }}
+
+      - name: Sync Built Assets To S3
+        env:
+          AWS_DEST_BUCKET: ${{ secrets.PROD_AWS_DEST_BUCKET }}
+        run: aws s3 sync public s3://$AWS_DEST_BUCKET --cache-control "max-age=86400" --delete
+
+      - name: Invalidate CloudFront Cache
+        env:
+          CLOUDFRONT_DIST_ID: ${{ secrets.PROD_CLOUDFRONT_DIST_ID }}
+        run: aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID --paths '/*'
+
+      - name: Semantic Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          export GH_TOKEN=$GH_TOKEN
+          npm run zip:assets
+          npx semantic-release
