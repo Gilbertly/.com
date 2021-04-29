@@ -1,0 +1,38 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "06:30"
+  reviewers:
+  - gilbertly
+  labels:
+  - dependabot
+  allow:
+  - dependency-type: production
+  ignore:
+  - dependency-name: antd
+    versions:
+    - 4.11.1
+    - 4.11.2
+    - 4.12.2
+    - 4.12.3
+    - 4.13.0
+    - 4.13.1
+    - 4.14.0
+    - 4.15.0
+    - 4.15.1
+  - dependency-name: gatsby-source-filesystem
+    versions:
+    - 2.10.0
+    - 3.2.0
+  - dependency-name: gatsby
+    versions:
+    - 2.31.1
+    - 2.32.3
+    - 3.2.1
+  - dependency-name: "@ant-design/icons"
+    versions:
+    - 4.5.0
+    - 4.6.2
