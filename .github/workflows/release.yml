@@ -19,7 +19,7 @@ jobs:
         id: build_dir
         run: |
           npm run build:prod
-          echo "::set-output name=BUILD_DIR::$(pwd)/public"
+          echo "::set-output name=BUILD_DIR::/home/runner/work/.com/public"
 
   deployDev:
     needs: build
