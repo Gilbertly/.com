@@ -14,7 +14,10 @@ jobs:
         run: npm install
       
       - name: Build project assets
-        run: npm run build:prod
+        id: build_dir
+        run: |
+          npm run build:prod
+          echo "::set-output name=BUILD_DIR::$(pwd)/public"
 
   deployDev:
     needs: build
@@ -30,14 +33,10 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Sync Built Assets To S3
-        env:
-          AWS_DEST_BUCKET: ${{ secrets.AWS_DEST_BUCKET }}
-        run: aws s3 sync public s3://$AWS_DEST_BUCKET --cache-control "max-age=86400" --delete
+        run: aws s3 sync ${{ steps.build_dir.outputs.BUILD_DIR }} s3://${{ secrets.AWS_DEST_BUCKET }} --cache-control "max-age=86400" --delete
 
       - name: Invalidate CloudFront Cache
-        env:
-          CLOUDFRONT_DIST_ID: ${{ secrets.CLOUDFRONT_DIST_ID }}
-        run: aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID --paths '/*'
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DIST_ID }} --paths '/*'
 
   deployProd:
     needs: build
@@ -52,20 +51,14 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Sync Built Assets To S3
-        env:
-          AWS_DEST_BUCKET: ${{ secrets.AWS_DEST_BUCKET }}
-        run: aws s3 sync public s3://$AWS_DEST_BUCKET --cache-control "max-age=86400" --delete
+      - name: Sync Built Assets To S3 
+        run: aws s3 sync ${{ steps.build_dir.outputs.BUILD_DIR }} s3://${{ secrets.AWS_DEST_BUCKET }} --cache-control "max-age=86400" --delete
 
       - name: Invalidate CloudFront Cache
-        env:
-          CLOUDFRONT_DIST_ID: ${{ secrets.CLOUDFRONT_DIST_ID }}
-        run: aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID --paths '/*'
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DIST_ID }} --paths '/*'
 
       - name: Semantic Release
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
-          export GH_TOKEN=$GH_TOKEN
+          export GH_TOKEN=${{ github.token }}
           npm run zip:assets
           npx semantic-release
