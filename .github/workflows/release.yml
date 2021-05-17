@@ -20,7 +20,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: build_assets
-          path: ./public
+          path: ./
           retention-days: 1
 
   deployDev:
@@ -33,7 +33,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: build_assets
-          path: public
+          path: ./
 
       - name: Configure aws dev credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -58,7 +58,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: build_assets
-          path: public
+          path: ./
 
       - name: Configure aws prod credentials
         uses: aws-actions/configure-aws-credentials@v1
