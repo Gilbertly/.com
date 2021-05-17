@@ -6,6 +6,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      BUILD_DIR: ${{ steps.build_dir.outputs.BUILD_DIR }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -33,7 +35,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Sync Built Assets To S3
-        run: aws s3 sync ${{ steps.build_dir.outputs.BUILD_DIR }} s3://${{ secrets.AWS_DEST_BUCKET }} --cache-control "max-age=86400" --delete
+        run: aws s3 sync ${{ needs.build.outputs.BUILD_DIR }} s3://${{ secrets.AWS_DEST_BUCKET }} --cache-control "max-age=86400" --delete
 
       - name: Invalidate CloudFront Cache
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DIST_ID }} --paths '/*'
@@ -52,7 +54,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Sync Built Assets To S3 
-        run: aws s3 sync ${{ steps.build_dir.outputs.BUILD_DIR }} s3://${{ secrets.AWS_DEST_BUCKET }} --cache-control "max-age=86400" --delete
+        run: aws s3 sync ${{ needs.build.outputs.BUILD_DIR }} s3://${{ secrets.AWS_DEST_BUCKET }} --cache-control "max-age=86400" --delete
 
       - name: Invalidate CloudFront Cache
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DIST_ID }} --paths '/*'
