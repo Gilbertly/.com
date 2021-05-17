@@ -20,7 +20,10 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: build_assets
-          path: ./
+          path: |
+            ./
+            !.cache/**
+            !node_modules/**
           retention-days: 1
 
   deployDev:
