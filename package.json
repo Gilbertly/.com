@@ -5,7 +5,7 @@
   "main": "src/pages/index.tsx",
   "scripts": {
     "build:dev": "GIT_HASH=$(git rev-parse HEAD) gatsby develop",
-    "build:prod": "GIT_HASH=$(git rev-parse HEAD) gatsby build",
+    "build:prod": "rm -fr public && GIT_HASH=$(git rev-parse HEAD) gatsby build",
     "zip:assets": "zip -qr public.zip ./public",
     "build:serve": "gatsby serve",
     "lint:fix": "eslint './src/**/*.{ts,tsx}' --fix",
