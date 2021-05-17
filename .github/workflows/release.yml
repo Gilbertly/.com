@@ -15,6 +15,7 @@ jobs:
         run: npm run test:build
 
   deployDev:
+    needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/develop'
     steps:
@@ -36,6 +37,7 @@ jobs:
         run: aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID --paths '/*'
 
   deployProd:
+    needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
     steps:
