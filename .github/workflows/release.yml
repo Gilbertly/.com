@@ -1,21 +1,37 @@
 name: release
-on: 
+on:
   push:
     branches: [master, develop]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        node: ['12', '14']
+    name: Build node ${{ matrix.node }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Set up node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Restore & cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
       - name: Install dependencies
         run: npm install
-      
+
       - name: Build project assets
         run: npm run build:prod
-      
+
       - name: Upload build assets
         uses: actions/upload-artifact@v2
         with:
@@ -70,7 +86,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Sync built assets to S3 
+      - name: Sync built assets to S3
         run: aws s3 sync public s3://${{ secrets.AWS_DEST_BUCKET }} --cache-control "max-age=86400" --delete
 
       - name: Invalidate cloudfront cache
