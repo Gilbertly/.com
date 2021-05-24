@@ -40,7 +40,6 @@ jobs:
             ./
             !.cache/**
             !node_modules/**
-            node_modules/@semantic-release/**
           retention-days: 1
 
   deployDev:
@@ -96,5 +95,6 @@ jobs:
       - name: Semantic release
         run: |
           export GH_TOKEN=${{ github.token }}
+          npm i -D @semantic-release/{changelog,git,github}
           npm run zip:assets
           npx semantic-release
