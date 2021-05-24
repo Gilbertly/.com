@@ -94,7 +94,7 @@ jobs:
 
       - name: Semantic release
         run: |
-          export GH_TOKEN=${{ github.token }}
+          export GH_TOKEN=${{ secrets.RELEASE_GH_TOKEN }}
           npm i -D @semantic-release/{changelog,git,github}
           npm run zip:assets
           npx semantic-release
