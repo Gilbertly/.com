@@ -40,6 +40,7 @@ jobs:
             ./
             !.cache/**
             !node_modules/**
+            node_modules/@semantic-release/**
           retention-days: 1
 
   deployDev:
