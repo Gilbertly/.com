@@ -21,7 +21,7 @@
     "@ant-design/icons": "^4.6.2",
     "antd": "^4.15.6",
     "gatsby": "^3.5.1",
-    "gatsby-source-filesystem": "^3.5.0",
+    "gatsby-source-filesystem": "^3.8.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-responsive": "^8.2.0"
