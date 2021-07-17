@@ -95,4 +95,4 @@ jobs:
       - name: Semantic release
         run: |
           npm i -D @semantic-release/{changelog,git,github,commit-analyzer,release-notes-generator}
-          npm run zip:assets && export GITHUB_TOKEN=${{ secrets.RELEASE_GH_TOKEN }} npx semantic-release
+          npm run zip:assets && GITHUB_TOKEN=${{ secrets.RELEASE_GH_TOKEN }} npx semantic-release
