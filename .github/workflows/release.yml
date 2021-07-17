@@ -19,6 +19,9 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
 
       - name: Set up node
         uses: actions/setup-node@v2
