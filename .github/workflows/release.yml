@@ -93,8 +93,6 @@ jobs:
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DIST_ID }} --paths '/*'
 
       - name: Semantic release
-        env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_GH_TOKEN }}
         run: |
           npm i -D @semantic-release/{changelog,git,github,commit-analyzer,release-notes-generator}
-          npm run zip:assets && npx semantic-release
+          npm run zip:assets && export GITHUB_TOKEN=${{ secrets.RELEASE_GH_TOKEN }} npx semantic-release
