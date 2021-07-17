@@ -1,3 +1,20 @@
+# [2.0.0](https://github.com/Gilbertly/.com/compare/v1.2.9...v2.0.0) (2021-07-17)
+
+
+### Bug Fixes
+
+* remove export inline ([efd4beb](https://github.com/Gilbertly/.com/commit/efd4beb2a1460794a4e4de17790a97bdf84a1f1a))
+* specify the repository url to use ([1460292](https://github.com/Gilbertly/.com/commit/1460292ab7dac3ab9d86b55f4c3dc955affe4774))
+* update github release token ([1dea23c](https://github.com/Gilbertly/.com/commit/1dea23c2ad2308749963c68ec7abc08ffeb34eec))
+
+
+### Features
+
+* cancel existing runs on new pushed commits ([91c1d9b](https://github.com/Gilbertly/.com/commit/91c1d9ba8c6a8cc28bb8016c6515bba638a4a867))
+* init code scanner ([f714475](https://github.com/Gilbertly/.com/commit/f71447521bc38d829e27479f3b7cb48aab86a66e))
+* init github actions workflow ([163db6d](https://github.com/Gilbertly/.com/commit/163db6dc0f4a7ee08d0d1c10229d22ea9e19fa68))
+* init husky config ([16a3abf](https://github.com/Gilbertly/.com/commit/16a3abf2d7a2348392c6f177369ab5b558c51d42))
+
 ## [1.2.9](https://github.com/Gilbertly/.com/compare/v1.2.8...v1.2.9) (2021-03-15)
 
 ## [1.2.8](https://github.com/Gilbertly/.com/compare/v1.2.7...v1.2.8) (2021-03-08)
