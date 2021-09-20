@@ -55,7 +55,7 @@
     "gatsby-plugin-react-helmet": "^4.11.0",
     "gatsby-plugin-sharp": "^3.11.0",
     "gatsby-plugin-typescript": "^3.11.0",
-    "gatsby-transformer-sharp": "^3.11.0",
+    "gatsby-transformer-sharp": "^3.14.0",
     "husky": "^7.0.1",
     "jest": "^27.0.6",
     "less": "^4.1.1",
