@@ -1,55 +1,63 @@
 import * as React from 'react';
+import Image from 'next/image';
+import githubIcon from '../../public/icons/socials/social-github.png';
+import keybaseIcon from '../../public/icons/socials/social-keybase.png';
+import twitterIcon from '../../public/icons/socials/social-twitter.png';
+import kaggleIcon from '../../public/icons/socials/social-kaggle.png';
+import linkedinIcon from '../../public/icons/socials/social-linkedin.png';
 
-interface SocialProps {
+type SocialProps = {
   name: string;
-  url: string;
+  url: object;
+  height: number;
+  width: number;
   alt: string;
   link: string;
-}
+};
 
 export const Socials = ({ socialIcons }: any) => {
-  const socials: SocialProps[] = [];
-
-  socialIcons.map((socialIcon: any) => {
-    const iconURL = socialIcon.node.childImageSharp.fluid.src;
-
-    if (iconURL.includes('social-github')) {
-      socials.push({
-        name: 'Github',
-        url: iconURL,
-        alt: 'Github Icon',
-        link: 'https://github.com/Gilbertly',
-      });
-    } else if (iconURL.includes('social-keybase')) {
-      socials.push({
-        name: 'Keybase',
-        url: iconURL,
-        alt: 'Keybase Icon',
-        link: 'https://keybase.io/gilbertly',
-      });
-    } else if (iconURL.includes('social-twitter')) {
-      socials.push({
-        name: 'Twitter',
-        url: iconURL,
-        alt: 'Twitter Icon',
-        link: 'https://twitter.com/_gilbertly',
-      });
-    } else if (iconURL.includes('social-linkedin')) {
-      socials.push({
-        name: 'LinkedIn',
-        url: iconURL,
-        alt: 'LinkedIn Icon',
-        link: 'https://www.linkedin.com/in/gilbert-gathara/',
-      });
-    } else if (iconURL.includes('social-kaggle')) {
-      socials.push({
-        name: 'Kaggle',
-        url: iconURL,
-        alt: 'Kaggle Icon',
-        link: 'https://www.kaggle.com/gilbertly',
-      });
-    }
-  });
+  const socials: SocialProps[] = [
+    {
+      name: 'Github',
+      url: githubIcon,
+      height: 22,
+      width: 22,
+      alt: 'Github Icon',
+      link: 'https://github.com/Gilbertly',
+    },
+    {
+      name: 'Keybase',
+      url: keybaseIcon,
+      height: 22,
+      width: 22,
+      alt: 'Keybase Icon',
+      link: 'https://keybase.io/gilbertly',
+    },
+    {
+      name: 'Twitter',
+      url: twitterIcon,
+      height: 22,
+      width: 22,
+      alt: 'Twitter Icon',
+      link: 'https://twitter.com/_gilbertly',
+    },
+    {
+      name: 'LinkedIn',
+      url: linkedinIcon,
+      height: 22,
+      width: 22,
+      alt: 'LinkedIn Icon',
+      link: 'https://www.linkedin.com/in/gilbert-gathara/',
+    },
+    {
+      name: 'Kaggle',
+      url: kaggleIcon,
+      height: 22,
+      width: 22,
+      alt: 'Kaggle Icon',
+      link: 'https://www.kaggle.com/gilbertly',
+    },
+  ];
 
   const socialset = socials.map(social => (
     <a
@@ -60,7 +68,12 @@ export const Socials = ({ socialIcons }: any) => {
       rel="noopener noreferrer"
     >
       <div className="icon">
-        <img src={social.url} alt={social.alt} />
+        <Image
+          src={social.url}
+          alt={social.alt}
+          width={social.width}
+          height={social.height}
+        />
       </div>
       <h4>{social.name}</h4>
     </a>

@@ -1,0 +1,16 @@
+{
+  "name": "Gilbertly Portfolio",
+  "short_name": "Gilbertly",
+  "description": "Gilbertly Portfolio",
+  "theme_color": "#070707",
+  "background_color": "#f5f5f5",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icon": "src/assets/img/avatarProfile.png",
+  "categories": [
+    "Showcase",
+    "Developer",
+    "Portfolio"
+  ]
+}
