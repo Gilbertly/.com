@@ -8,7 +8,7 @@ import linkedinIcon from '../../public/icons/socials/social-linkedin.png';
 
 type SocialProps = {
   name: string;
-  url: object;
+  img: StaticImageData;
   height: number;
   width: number;
   alt: string;
@@ -19,7 +19,7 @@ export const Socials = ({ socialIcons }: any) => {
   const socials: SocialProps[] = [
     {
       name: 'Github',
-      url: githubIcon,
+      img: githubIcon,
       height: 22,
       width: 22,
       alt: 'Github Icon',
@@ -27,7 +27,7 @@ export const Socials = ({ socialIcons }: any) => {
     },
     {
       name: 'Keybase',
-      url: keybaseIcon,
+      img: keybaseIcon,
       height: 22,
       width: 22,
       alt: 'Keybase Icon',
@@ -35,7 +35,7 @@ export const Socials = ({ socialIcons }: any) => {
     },
     {
       name: 'Twitter',
-      url: twitterIcon,
+      img: twitterIcon,
       height: 22,
       width: 22,
       alt: 'Twitter Icon',
@@ -43,7 +43,7 @@ export const Socials = ({ socialIcons }: any) => {
     },
     {
       name: 'LinkedIn',
-      url: linkedinIcon,
+      img: linkedinIcon,
       height: 22,
       width: 22,
       alt: 'LinkedIn Icon',
@@ -51,7 +51,7 @@ export const Socials = ({ socialIcons }: any) => {
     },
     {
       name: 'Kaggle',
-      url: kaggleIcon,
+      img: kaggleIcon,
       height: 22,
       width: 22,
       alt: 'Kaggle Icon',
@@ -69,7 +69,7 @@ export const Socials = ({ socialIcons }: any) => {
     >
       <div className="icon">
         <Image
-          src={social.url}
+          src={social.img}
           alt={social.alt}
           width={social.width}
           height={social.height}

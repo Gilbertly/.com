@@ -4,8 +4,8 @@
   "description": "Personal portfolio site",
   "main": "src/pages/index.tsx",
   "scripts": {
-    "build:dev": "GIT_HASH=$(git rev-parse HEAD) && next",
-    "build:prod": "GIT_HASH=$(git rev-parse HEAD) && next build",
+    "build:dev": "export NEXT_PUBLIC_GIT_HASH=$(git rev-parse HEAD) && next",
+    "build:prod": "npm run lint && next build && next export",
     "start": "next start",
     "lint": "next lint",
     "zip:assets": "zip -qr public.zip ./public",

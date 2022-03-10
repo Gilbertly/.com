@@ -6,7 +6,7 @@ import { AboutMe } from '../components/AboutMe';
 // import { FrontendSkillset } from '../components/FrontendSkillset';
 // import { BackendSkillset } from '../components/BackendSkillset';
 // import { DataSkillset } from '../components/DataSkillset';
-// import { Footer } from '../components/Footer';
+import { Footer } from '../components/Footer';
 
 const Home: NextPage = () => {
   return (
@@ -23,9 +23,11 @@ const Home: NextPage = () => {
       <Header />
       <Socials />
       <AboutMe />
+
       {/* <FrontendSkillset frontendIcons={frontendIcons} />
       <BackendSkillset backendIcons={backendIcons} awsIcons={backendAWSIcons} />
       <DataSkillset dataIcons={dataIcons} /> */}
+      <Footer />
     </div>
   );
 };
