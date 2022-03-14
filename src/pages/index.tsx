@@ -3,9 +3,6 @@ import Head from 'next/head';
 import { Header } from '../components/Header';
 import { Socials } from '../components/Socials';
 import { AboutMe } from '../components/AboutMe';
-// import { FrontendSkillset } from '../components/FrontendSkillset';
-// import { BackendSkillset } from '../components/BackendSkillset';
-// import { DataSkillset } from '../components/DataSkillset';
 import { Footer } from '../components/Footer';
 
 const Home: NextPage = () => {
@@ -13,6 +10,7 @@ const Home: NextPage = () => {
     <div className="page-index">
       <Head>
         <title>Gilbert Gathara</title>
+        <meta charSet="utf-8" />
         <meta
           name="Gilbert Gathara"
           content="Software/Data Engineering Portfolio"
@@ -24,9 +22,6 @@ const Home: NextPage = () => {
       <Socials />
       <AboutMe />
 
-      {/* <FrontendSkillset frontendIcons={frontendIcons} />
-      <BackendSkillset backendIcons={backendIcons} awsIcons={backendAWSIcons} />
-      <DataSkillset dataIcons={dataIcons} /> */}
       <Footer />
     </div>
   );

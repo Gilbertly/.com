@@ -8,10 +8,9 @@ export const Header = () => {
       <div className="avatar">
         <Image
           src={avatarProfileIcon}
-          width={112}
-          height={112}
           alt="Gilbert Gathara"
           placeholder="blur"
+          quality={100}
           priority
         />
       </div>
