@@ -1,24 +1,18 @@
 import * as React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import NextImage from './Image';
+import avatarProfileIcon from '../../public/img/avatarProfile.png';
 
 export const Header = () => {
-  const data = useStaticQuery(graphql`
-    query avatarProfile {
-      avatarProfileIcon: file(relativePath: { eq: "img/avatarProfile.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 112, maxHeight: 112, quality: 100) {
-            src
-          }
-        }
-      }
-    }
-  `);
-  const avatarProfileIcon = data.avatarProfileIcon.childImageSharp.fluid.src;
-
   return (
     <section className="section-header">
       <div className="avatar">
-        <img src={avatarProfileIcon} alt="Gilbert Gathara" />
+        <NextImage
+          src={avatarProfileIcon}
+          alt="Gilbert Gathara"
+          placeholder="blur"
+          quality={100}
+          priority
+        />
       </div>
       <div className="content">
         <h2>

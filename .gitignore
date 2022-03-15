@@ -106,4 +106,3 @@ dist
 # project-specific
 build/**
 .cache/**
-public/**

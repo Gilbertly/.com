@@ -1,69 +1,51 @@
 import * as React from 'react';
+import Link from 'next/link';
+import {
+  MailOutlined,
+  GithubOutlined,
+  TwitterOutlined,
+  LinkedinFilled,
+  DribbbleOutlined,
+} from '@ant-design/icons';
 
-interface SocialProps {
-  name: string;
-  url: string;
-  alt: string;
-  link: string;
-}
-
-export const Socials = ({ socialIcons }: any) => {
-  const socials: SocialProps[] = [];
-
-  socialIcons.map((socialIcon: any) => {
-    const iconURL = socialIcon.node.childImageSharp.fluid.src;
-
-    if (iconURL.includes('social-github')) {
-      socials.push({
-        name: 'Github',
-        url: iconURL,
-        alt: 'Github Icon',
-        link: 'https://github.com/Gilbertly',
-      });
-    } else if (iconURL.includes('social-keybase')) {
-      socials.push({
-        name: 'Keybase',
-        url: iconURL,
-        alt: 'Keybase Icon',
-        link: 'https://keybase.io/gilbertly',
-      });
-    } else if (iconURL.includes('social-twitter')) {
-      socials.push({
-        name: 'Twitter',
-        url: iconURL,
-        alt: 'Twitter Icon',
-        link: 'https://twitter.com/_gilbertly',
-      });
-    } else if (iconURL.includes('social-linkedin')) {
-      socials.push({
-        name: 'LinkedIn',
-        url: iconURL,
-        alt: 'LinkedIn Icon',
-        link: 'https://www.linkedin.com/in/gilbert-gathara/',
-      });
-    } else if (iconURL.includes('social-kaggle')) {
-      socials.push({
-        name: 'Kaggle',
-        url: iconURL,
-        alt: 'Kaggle Icon',
-        link: 'https://www.kaggle.com/gilbertly',
-      });
-    }
-  });
+export const Socials = () => {
+  const socials = [
+    {
+      name: 'hello@gilbertly.com',
+      icon: <MailOutlined />,
+      link: 'mailto:hello@gilbertly.com',
+    },
+    {
+      name: 'Github',
+      icon: <GithubOutlined />,
+      link: 'https://github.com/Gilbertly',
+    },
+    {
+      name: 'Twitter',
+      icon: <TwitterOutlined />,
+      link: 'https://twitter.com/_gilbertly',
+    },
+    {
+      name: 'LinkedIn',
+      icon: <LinkedinFilled />,
+      link: 'https://www.linkedin.com/in/gilbert-gathara/',
+    },
+    {
+      name: 'Dribbble',
+      icon: <DribbbleOutlined />,
+      link: 'https://dribbble.com/gilbertly',
+    },
+  ];
 
   const socialset = socials.map(social => (
-    <a
-      className="social"
-      key={social.alt}
-      href={social.link}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <div className="icon">
-        <img src={social.url} alt={social.alt} />
-      </div>
-      <h4>{social.name}</h4>
-    </a>
+    <span className="social" key={social.name}>
+      <Link href={social.link}>
+        <a target="_blank" rel="noopener noreferrer">
+          {social.icon}
+          {social.name}
+        </a>
+      </Link>
+    </span>
   ));
 
   return (
