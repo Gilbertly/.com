@@ -1,12 +1,12 @@
 import * as React from 'react';
-import Image from 'next/image';
+import NextImage from './Image';
 import avatarProfileIcon from '../../public/img/avatarProfile.png';
 
 export const Header = () => {
   return (
     <section className="section-header">
       <div className="avatar">
-        <Image
+        <NextImage
           src={avatarProfileIcon}
           alt="Gilbert Gathara"
           placeholder="blur"
