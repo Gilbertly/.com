@@ -8,6 +8,12 @@ const withBundleAnalyzer = require('@next/bundle-analyzer');
 
 const stylesPath = path.resolve('./src/styles/index.less');
 
+const nextConfig = {
+  images: {
+    loader: 'custom',
+  }
+};
+
 module.exports = withPlugins([
   [withBundleAnalyzer, {
     enabled: process.env.ANALYZE === 'true',
@@ -25,5 +31,5 @@ module.exports = withPlugins([
         javascriptEnabled: true,
       }
     },
-  }]
-]);
+  }],
+], nextConfig);
