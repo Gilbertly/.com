@@ -1,16 +1,18 @@
+@use '../variables.scss' as *;
+
 .section-socials {
   display: flex;
   flex-direction: column;
-  background-color: @dark-foreground;
+  background-color: $darkForeground;
   margin: 0.5rem;
   border-radius: 8px;
   margin: auto 0.8rem;
   margin-bottom: 1rem;
-  color: @skill-text-color;
+  color: $skillTextColor;
 
   h2,
   h4 {
-    color: @white;
+    color: $white1;
     margin-bottom: 0;
   }
   .socialset .anticon {

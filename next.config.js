@@ -6,12 +6,12 @@ const withPlugins = require('next-compose-plugins');
 const withLess = require("next-with-less");
 const withBundleAnalyzer = require('@next/bundle-analyzer');
 
-const stylesPath = path.resolve('./src/styles/index.less');
+const stylesPath = path.resolve('./src/styles/antd.less');
 
 const nextConfig = {
   images: {
     loader: 'custom',
-  }
+  },
 };
 
 module.exports = withPlugins([
