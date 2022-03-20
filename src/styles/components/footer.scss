@@ -1,11 +1,13 @@
+@use '../variables.scss' as *;
+
 .section-footer {
   display: flex;
-  background-color: @dark-foreground;
+  background-color: $darkForeground;
   border-radius: 8px;
   margin: 1rem 0.8rem;
 
   h4 {
-    color: @white;
+    color: $white1;
   }
 
   .footer-content {

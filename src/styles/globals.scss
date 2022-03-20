@@ -1,0 +1,17 @@
+// Variables
+@use './variables.scss' as *;
+
+// Layouts
+@import './layout.scss';
+
+// Components
+@import './components/header.scss';
+@import './components/socials.scss';
+@import './components/aboutme.scss';
+@import './components/footer.scss';
+
+body {
+  max-width: 978px;
+  margin: 0 auto;
+  background-color: $darkBackground;
+}
