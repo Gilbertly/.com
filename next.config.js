@@ -9,6 +9,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer');
 const stylesPath = path.resolve('./src/styles/antd.less');
 
 const nextConfig = {
+  swcMinify: true,
+  reactStrictMode: true,
   images: {
     loader: 'custom',
   },
