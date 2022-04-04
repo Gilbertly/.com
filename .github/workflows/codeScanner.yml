@@ -35,7 +35,7 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Restore & cache dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3.0.1
         with:
           path: node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
