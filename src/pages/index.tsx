@@ -1,7 +1,8 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { Container, SimpleGrid } from '@mantine/core';
-import { Header } from '../components/Header';
+import { SimpleHeader } from '../components/Header';
+import { Hero } from '../components/Hero';
 
 const Home: NextPage = () => {
   return (
@@ -16,7 +17,10 @@ const Home: NextPage = () => {
           />
           <link rel="canonical" href="https://gilbertly.com/" />
         </Head>
-        <Header
+
+        <SimpleHeader />
+
+        <Hero
           title="Hi 👋🏽, I'm Gilbert Gathara"
           intro="I collaborate with data and dev teams to build, scale, and keep
           infrastructure healthy for production apps & machine learning models
