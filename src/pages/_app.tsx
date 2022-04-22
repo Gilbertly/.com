@@ -5,7 +5,7 @@ import {
   ColorSchemeProvider,
   ColorScheme,
 } from '@mantine/core';
-import { HeaderNav } from '../components/Header';
+import { AppShell } from '../components/AppShell';
 
 export default function App({ Component, pageProps }: AppProps) {
   const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
@@ -22,8 +22,9 @@ export default function App({ Component, pageProps }: AppProps) {
         withNormalizeCSS
         theme={{ colorScheme }}
       >
-        <HeaderNav />
-        <Component {...pageProps} />
+        <AppShell>
+          <Component {...pageProps} />
+        </AppShell>
       </MantineProvider>
     </ColorSchemeProvider>
   );
