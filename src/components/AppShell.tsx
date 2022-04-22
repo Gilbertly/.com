@@ -4,10 +4,10 @@ import { FooterNav } from '../components/Footer';
 
 export const AppShell = (props: any) => {
   return (
-    <>
+    <Container>
       <HeaderNav />
-      <Container>{props.children}</Container>
+      {props.children}
       <FooterNav />
-    </>
+    </Container>
   );
 };
