@@ -95,7 +95,7 @@ const useStyles = createStyles(theme => ({
   },
 }));
 
-export function SimpleHeader() {
+export function HeaderNav() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const [opened, toggleOpened] = useBooleanToggle(false);
   const { classes } = useStyles();
