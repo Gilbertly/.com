@@ -1,26 +1,116 @@
-import * as React from 'react';
+import React from 'react';
+import { createStyles, Group, Anchor, Text, ActionIcon } from '@mantine/core';
+import {
+  BrandTwitter,
+  BrandDribbble,
+  BrandLinkedin,
+  BrandGithub,
+} from 'tabler-icons-react';
 
-export const Footer = () => {
+const useStyles = createStyles(theme => ({
+  footer: {
+    marginTop: 120,
+    borderTop: `1px solid ${
+      theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
+    }`,
+  },
+
+  inner: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: `${theme.spacing.md}px ${theme.spacing.md}px`,
+
+    [theme.fn.smallerThan('sm')]: {
+      flexDirection: 'column',
+    },
+  },
+
+  links: {
+    [theme.fn.smallerThan('sm')]: {
+      marginTop: theme.spacing.lg,
+      marginBottom: theme.spacing.sm,
+    },
+  },
+}));
+
+export function FooterNav() {
+  const { classes } = useStyles();
+
   const currentYear = new Date().getFullYear();
   const gitHashFull = process.env.NEXT_PUBLIC_GIT_HASH || '';
   const gitHashShort = gitHashFull.slice(0, 7);
   const gitCommitUrl = `https://github.com/Gilbertly/.com/commit/${gitHashFull}`;
 
+  // const links = [
+  //   {
+  //     link: 'https://github.com/Gilbertly',
+  //     label: 'Github',
+  //     icon: BrandGithub,
+  //   },
+  //   {
+  //     link: 'https://twitter.com/_gilbertly',
+  //     label: 'Twitter',
+  //     icon: BrandTwitter,
+  //   },
+  //   {
+  //     link: 'https://dribbble.com/gilbertly',
+  //     label: 'Dribbble',
+  //     icon: BrandDribbble,
+  //   },
+  //   {
+  //     link: 'https://www.linkedin.com/in/gilbert-gathara/',
+  //     label: 'LinkedIn',
+  //     icon: BrandLinkedin,
+  //   },
+  // ];
+
+  // const socials = links.map(link => (
+  //   <Anchor<'a'>
+  //     color="dimmed"
+  //     key={link.label}
+  //     href={link.link}
+  //     sx={{ lineHeight: 1 }}
+  //     size="sm"
+  //   >
+  //     {link.label}
+  //   </Anchor>
+  // ));
+
   return (
-    <footer className="section-footer">
-      <h4 className="footer-content">
-        <span role="img" aria-label="copyright">
-          &copy; {`2016-${currentYear}, Gilbert Gathara. `}
-        </span>
-        <span>
-          {`All Rights Reserved. Commit `}
-          <a
+    <div className={classes.footer}>
+      <div className={classes.inner}>
+        <Text aria-label="copyright" color="dimmed" size="sm" weight={500}>
+          &copy; {`2016-${currentYear}`}
+        </Text>
+
+        <Group spacing={0} position="center" noWrap>
+          <ActionIcon size="lg" mr={8}>
+            <BrandGithub size={18} />
+          </ActionIcon>
+          <ActionIcon size="lg" mr={8}>
+            <BrandTwitter size={18} />
+          </ActionIcon>
+          <ActionIcon size="lg" mr={8}>
+            <BrandDribbble size={18} />
+          </ActionIcon>
+          <ActionIcon size="lg">
+            <BrandLinkedin size={18} />
+          </ActionIcon>
+        </Group>
+
+        <Group className={classes.links}>
+          <Anchor<'a'>
+            size="sm"
+            color="dimmed"
             href={gitCommitUrl || ''}
             target="_blank"
             rel="noopener noreferrer"
-          >{`#${gitHashShort}`}</a>
-        </span>
-      </h4>
-    </footer>
+          >
+            {`#${gitHashShort}`}
+          </Anchor>
+        </Group>
+      </div>
+    </div>
   );
-};
+}
