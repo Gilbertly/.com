@@ -9,10 +9,13 @@ import {
   Paper,
   Transition,
   ActionIcon,
+  Text,
   useMantineColorScheme,
 } from '@mantine/core';
 import { useBooleanToggle } from '@mantine/hooks';
 import { Sun, MoonStars } from 'tabler-icons-react';
+import NextImage from './Image';
+import avatarProfileIcon from '../../public/img/avatarProfile.png';
 
 const HEADER_HEIGHT = 60;
 
@@ -116,9 +119,22 @@ export function HeaderNav() {
   ));
 
   return (
-    <Header height={HEADER_HEIGHT} mb={16} className={classes.root}>
+    <Header height={HEADER_HEIGHT} mb={16} mt={4} className={classes.root}>
       <Container className={classes.header}>
-        <span></span>
+        <Group>
+          <NextImage
+            src={avatarProfileIcon}
+            alt="Gilbert Gathara"
+            placeholder="blur"
+            quality={100}
+            height="42"
+            width="42"
+            priority
+          />
+          <Text size="xl" weight={700} color="dimmed">
+            Gilbert Gathara
+          </Text>
+        </Group>
         <Group spacing={5} className={classes.links}>
           {items}
           <ActionIcon

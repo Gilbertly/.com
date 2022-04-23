@@ -1,32 +1,18 @@
 import { Text, Group } from '@mantine/core';
-import NextImage from './Image';
-import avatarProfileIcon from '../../public/img/avatarProfile.png';
 
-interface UserInfoProps {
-  title: string;
-  intro: string;
-}
-
-export const Hero = ({ title, intro }: UserInfoProps) => {
+export const Hero = () => {
   return (
     <div>
-      <Group noWrap>
-        <NextImage
-          src={avatarProfileIcon}
-          alt="Gilbert Gathara"
-          placeholder="blur"
-          quality={100}
-          height="140"
-          width="140"
-          priority
-        />
+      <Group noWrap mt={64}>
         <div>
           <Text size="xl" weight={700} color="dimmed">
-            {title}
+            Hi 👋🏽,
           </Text>
 
           <Text size="lg" weight={500}>
-            {intro}
+            I collaborate with data and dev teams to build, scale, and keep
+            infrastructure healthy for production apps & machine learning models
+            on AWS.
           </Text>
         </div>
       </Group>

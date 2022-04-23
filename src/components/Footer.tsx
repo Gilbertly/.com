@@ -42,40 +42,44 @@ export function FooterNav() {
   const gitHashShort = gitHashFull.slice(0, 7);
   const gitCommitUrl = `https://github.com/Gilbertly/.com/commit/${gitHashFull}`;
 
-  // const links = [
-  //   {
-  //     link: 'https://github.com/Gilbertly',
-  //     label: 'Github',
-  //     icon: BrandGithub,
-  //   },
-  //   {
-  //     link: 'https://twitter.com/_gilbertly',
-  //     label: 'Twitter',
-  //     icon: BrandTwitter,
-  //   },
-  //   {
-  //     link: 'https://dribbble.com/gilbertly',
-  //     label: 'Dribbble',
-  //     icon: BrandDribbble,
-  //   },
-  //   {
-  //     link: 'https://www.linkedin.com/in/gilbert-gathara/',
-  //     label: 'LinkedIn',
-  //     icon: BrandLinkedin,
-  //   },
-  // ];
+  const links = [
+    {
+      link: 'https://github.com/Gilbertly',
+      label: 'Github',
+      icon: <BrandGithub size={18} />,
+    },
+    {
+      link: 'https://twitter.com/_gilbertly',
+      label: 'Twitter',
+      icon: <BrandTwitter size={18} />,
+    },
+    {
+      link: 'https://dribbble.com/gilbertly',
+      label: 'Dribbble',
+      icon: <BrandDribbble size={18} />,
+    },
+    {
+      link: 'https://www.linkedin.com/in/gilbert-gathara/',
+      label: 'LinkedIn',
+      icon: <BrandLinkedin size={18} />,
+    },
+  ];
 
-  // const socials = links.map(link => (
-  //   <Anchor<'a'>
-  //     color="dimmed"
-  //     key={link.label}
-  //     href={link.link}
-  //     sx={{ lineHeight: 1 }}
-  //     size="sm"
-  //   >
-  //     {link.label}
-  //   </Anchor>
-  // ));
+  const socials = links.map(link => (
+    <Anchor<'a'>
+      color="dimmed"
+      key={link.label}
+      href={link.link}
+      sx={{ lineHeight: 1 }}
+      target="_blank"
+      rel="noopener noreferrer"
+      size="sm"
+    >
+      <ActionIcon size="lg" mr={8}>
+        {link.icon}
+      </ActionIcon>
+    </Anchor>
+  ));
 
   return (
     <div className={classes.footer}>
@@ -85,18 +89,7 @@ export function FooterNav() {
         </Text>
 
         <Group spacing={0} position="center" noWrap>
-          <ActionIcon size="lg" mr={8}>
-            <BrandGithub size={18} />
-          </ActionIcon>
-          <ActionIcon size="lg" mr={8}>
-            <BrandTwitter size={18} />
-          </ActionIcon>
-          <ActionIcon size="lg" mr={8}>
-            <BrandDribbble size={18} />
-          </ActionIcon>
-          <ActionIcon size="lg">
-            <BrandLinkedin size={18} />
-          </ActionIcon>
+          {socials}
         </Group>
 
         <Group className={classes.links}>
