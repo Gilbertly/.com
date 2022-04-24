@@ -1,41 +1,15 @@
 import React from 'react';
-import { createStyles, Group, Anchor, Text, ActionIcon } from '@mantine/core';
+import { Group, Anchor, Text, ActionIcon } from '@mantine/core';
 import {
   BrandTwitter,
   BrandDribbble,
   BrandLinkedin,
   BrandGithub,
 } from 'tabler-icons-react';
-
-const useStyles = createStyles(theme => ({
-  footer: {
-    marginTop: 120,
-    borderTop: `1px solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
-    }`,
-  },
-
-  inner: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: `${theme.spacing.md}px ${theme.spacing.md}px`,
-
-    [theme.fn.smallerThan('sm')]: {
-      flexDirection: 'column',
-    },
-  },
-
-  links: {
-    [theme.fn.smallerThan('sm')]: {
-      marginTop: theme.spacing.lg,
-      marginBottom: theme.spacing.sm,
-    },
-  },
-}));
+import { useFooterNav } from '../hooks/styles/useFooterNav';
 
 export function FooterNav() {
-  const { classes } = useStyles();
+  const { classes } = useFooterNav();
 
   const currentYear = new Date().getFullYear();
   const gitHashFull = process.env.NEXT_PUBLIC_GIT_HASH || '';
