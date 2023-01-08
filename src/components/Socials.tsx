@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Link from 'next/link';
 import {
-  MailOutlined,
   GithubOutlined,
   TwitterOutlined,
   LinkedinFilled,
@@ -10,11 +9,6 @@ import {
 
 export const Socials = () => {
   const socials = [
-    {
-      name: 'hello@gilbertly.com',
-      icon: <MailOutlined />,
-      link: 'mailto:hello@gilbertly.com',
-    },
     {
       name: 'Github',
       icon: <GithubOutlined />,

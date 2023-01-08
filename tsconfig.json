@@ -43,5 +43,5 @@
     "**/*.test.tsx",
     "build"
   ],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/_document.tsx"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/_document.tsx", "src/lib/getHash.mjs"]
 }
