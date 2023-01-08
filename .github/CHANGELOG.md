@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/Gilbertly/.com/compare/v2.2.0...v2.3.0) (2023-01-08)
+
+
+### Bug Fixes
+
+* remove double && on script ([d0982bd](https://github.com/Gilbertly/.com/commit/d0982bdc2d2bb4a6609aeb2267095157cad1144a))
+
 # [2.2.0](https://github.com/Gilbertly/.com/compare/v2.1.0...v2.2.0) (2022-03-20)
 
 # [2.1.0](https://github.com/Gilbertly/.com/compare/v2.0.2...v2.1.0) (2022-03-15)
