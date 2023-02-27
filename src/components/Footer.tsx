@@ -12,7 +12,7 @@ export function FooterNav() {
   const { classes } = useFooterNav();
 
   const currentYear = new Date().getFullYear();
-  const gitHashFull = process.env.NEXT_PUBLIC_GIT_HASH || '';
+  const gitHashFull = process.env.VERCEL_GIT_COMMIT_SHA || '';
   const gitHashShort = gitHashFull.slice(0, 7);
   const gitCommitUrl = `https://github.com/Gilbertly/.com/commit/${gitHashFull}`;
 

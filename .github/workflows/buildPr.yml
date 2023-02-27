@@ -44,7 +44,6 @@ jobs:
           vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
           vercel build --token=${{ secrets.VERCEL_TOKEN }}
           vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }} > deployment-url.txt
-          echo $(git rev-parse HEAD) | vercel env add NEXT_PUBLIC_GIT_HASH preview
           echo "url=`cat deployment-url.txt`" >> $GITHUB_OUTPUT
 
       - name: Comment on PR
