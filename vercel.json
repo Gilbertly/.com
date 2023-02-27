@@ -1,0 +1,7 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "export NEXT_PUBLIC_GIT_HASH=$(git rev-parse HEAD) && next build",
+  "devCommand": "export NEXT_PUBLIC_GIT_HASH=$(git rev-parse HEAD) && next dev --turbo",
+  "installCommand": "npm install",
+  "public": false
+}
