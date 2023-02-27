@@ -27,7 +27,7 @@ jobs:
           registry-url: https://registry.npmjs.org
 
       - name: Restore & cache dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ./node_modules
           key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
