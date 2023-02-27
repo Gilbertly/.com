@@ -1,7 +1,7 @@
 {
   "framework": "nextjs",
-  "buildCommand": "next build --turbo",
-  "devCommand": "next dev --turbo",
+  "buildCommand": "next build",
+  "devCommand": "next dev",
   "installCommand": "npm install",
   "public": false
 }
