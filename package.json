@@ -19,7 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
-    "@next/bundle-analyzer": "^12.1.0",
+    "@next/bundle-analyzer": "^13.2.1",
     "antd": "^4.19.1",
     "next": "12.1.0",
     "next-compose-plugins": "^2.2.1",
