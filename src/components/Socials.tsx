@@ -1,32 +1,38 @@
 import * as React from 'react';
 import Link from 'next/link';
-import {
-  GithubOutlined,
-  TwitterOutlined,
-  LinkedinFilled,
-  DribbbleOutlined,
-} from '@ant-design/icons';
+// import {
+//   MailOutlined,
+//   GithubOutlined,
+//   TwitterOutlined,
+//   LinkedinFilled,
+//   DribbbleOutlined,
+// } from '@ant-design/icons';
 
 export const Socials = () => {
   const socials = [
     {
+      name: 'hello@gilbertly.com',
+      // icon: <MailOutlined />,
+      link: 'mailto:hello@gilbertly.com',
+    },
+    {
       name: 'Github',
-      icon: <GithubOutlined />,
+      // icon: <GithubOutlined />,
       link: 'https://github.com/Gilbertly',
     },
     {
       name: 'Twitter',
-      icon: <TwitterOutlined />,
+      // icon: <TwitterOutlined />,
       link: 'https://twitter.com/_gilbertly',
     },
     {
       name: 'LinkedIn',
-      icon: <LinkedinFilled />,
+      // icon: <LinkedinFilled />,
       link: 'https://www.linkedin.com/in/gilbert-gathara/',
     },
     {
       name: 'Dribbble',
-      icon: <DribbbleOutlined />,
+      // icon: <DribbbleOutlined />,
       link: 'https://dribbble.com/gilbertly',
     },
   ];
@@ -35,7 +41,7 @@ export const Socials = () => {
     <span className="social" key={social.name}>
       <Link href={social.link}>
         <a target="_blank" rel="noopener noreferrer">
-          {social.icon}
+          {/* {social.icon} */}
           {social.name}
         </a>
       </Link>
