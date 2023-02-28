@@ -5,8 +5,8 @@
   "main": "src/pages/index.tsx",
   "scripts": {
     "build:dev": "export VERCEL_GIT_COMMIT_SHA=$(git rev-parse HEAD) && next",
-    "build:prod": "npm run lint && export VERCEL_GIT_COMMIT_SHA=$(git rev-parse HEAD) && next build",
-    "build:preview": "next build && next start",
+    "build:prod": "next build",
+    "build:preview": "next build && export VERCEL_GIT_COMMIT_SHA=$(git rev-parse HEAD) && next start",
     "lint": "next lint"
   },
   "repository": {
