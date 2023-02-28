@@ -1,4 +1,4 @@
-name: Preview
+name: Production
 
 on:
   push:
@@ -35,7 +35,6 @@ jobs:
         run: npm install
 
       - name: Pull, Build, and Deploy to Vercel Production
-        id: deployment
         run: |
           vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
           vercel build --token=${{ secrets.VERCEL_TOKEN }}
