@@ -1,17 +1,17 @@
-import React from 'react';
+// import React from 'react';
 import Link from 'next/link';
 import {
   Header,
   Container,
   Group,
   Burger,
-  Paper,
-  Transition,
+  // Paper,
+  // Transition,
   ActionIcon,
   Text,
   useMantineColorScheme,
 } from '@mantine/core';
-import { useBooleanToggle } from '@mantine/hooks';
+// import { useBooleanToggle } from '@mantine/hooks';
 import { Sun, MoonStars } from 'tabler-icons-react';
 import NextImage from './Image';
 import avatarProfileIcon from '../../public/img/avatarProfile.png';
@@ -19,7 +19,7 @@ import { useHeaderNav } from '../hooks/styles/useHeaderNav';
 
 export function HeaderNav() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  const [opened, toggleOpened] = useBooleanToggle(false);
+  // const [opened, toggleOpened] = useBooleanToggle(false);
   const { classes } = useHeaderNav();
 
   const dark = colorScheme === 'dark';
@@ -31,9 +31,9 @@ export function HeaderNav() {
 
   const items = links.map(link => (
     <Link href={link.link} key={link.label}>
-      <a key={link.label} className={classes.link}>
-        {link.label}
-      </a>
+      {/* <a key={link.label} className={classes.link}> */}
+      {link.label}
+      {/* </a> */}
     </Link>
   ));
 
@@ -68,19 +68,19 @@ export function HeaderNav() {
         </Group>
 
         <Burger
-          opened={opened}
-          onClick={() => toggleOpened()}
+          opened={false}
+          // onClick={() => toggleOpened()}
           className={classes.burger}
           size="sm"
         />
-
-        <Transition transition="pop-top-right" duration={200} mounted={opened}>
+        {/*
+        <Transition transition="pop-top-right" duration={200} mounted={false}>
           {styles => (
             <Paper className={classes.dropdown} withBorder style={styles}>
               {items}
             </Paper>
           )}
-        </Transition>
+        </Transition> */}
       </Container>
     </Header>
   );
