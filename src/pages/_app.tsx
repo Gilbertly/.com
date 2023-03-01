@@ -1,31 +1,14 @@
-import { useState } from 'react';
+import Script from 'next/script';
 import type { AppProps } from 'next/app';
-import {
-  MantineProvider,
-  ColorSchemeProvider,
-  ColorScheme,
-} from '@mantine/core';
-import { AppShell } from '../components/AppShell';
+import { Analytics } from '@vercel/analytics/react';
+import '../styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [colorScheme, setColorScheme] = useState<ColorScheme>('dark');
-  const toggleColorScheme = (value?: ColorScheme) =>
-    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
-
   return (
-    <ColorSchemeProvider
-      colorScheme={colorScheme}
-      toggleColorScheme={toggleColorScheme}
-    >
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{ colorScheme }}
-      >
-        <AppShell>
-          <Component {...pageProps} />
-        </AppShell>
-      </MantineProvider>
-    </ColorSchemeProvider>
+    <>
+      <Script src="./assets/vendor/preline/dist/preline.js" />
+      <Component {...pageProps} />
+      <Analytics />
+    </>
   );
 }
