@@ -18,7 +18,7 @@
   "dependencies": {
     "@mantine/core": "^5.10.5",
     "@mantine/hooks": "^5.10.5",
-    "@mantine/next": "^5.10.5",
+    "@mantine/next": "^6.0.0",
     "@next/bundle-analyzer": "^13.2.1",
     "next": "13.2.1",
     "next-compose-plugins": "^2.2.1",
