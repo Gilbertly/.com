@@ -1,24 +1,14 @@
-import { createGetInitialProps } from '@mantine/next';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
-const getInitialProps = createGetInitialProps();
-
 class MyDocument extends Document {
-  static getInitialProps = getInitialProps;
-
   render() {
     return (
       <Html lang="en">
         <Head>
-          <title>Gilbert Gathara</title>
           <meta charSet="utf-8" />
           <meta
             name="Gilbert Gathara"
-            content="Software/Data Engineering Portfolio"
-          />
-          <meta
-            name="viewport"
-            content="minimum-scale=1, initial-scale=1, width=device-width"
+            content="Software Engineering Portfolio"
           />
           <link rel="canonical" href="https://gilbertly.com/" />
           <link
@@ -26,7 +16,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body>
+        <body className="bg-gray-50 dark:bg-slate-900">
           <Main />
           <NextScript />
         </body>
