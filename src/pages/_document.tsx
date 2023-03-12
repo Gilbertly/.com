@@ -5,23 +5,18 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          {/* <title>Gilbert Gathara</title> */}
           <meta charSet="utf-8" />
           <meta
             name="Gilbert Gathara"
             content="Software Engineering Portfolio"
           />
-          {/* <meta
-            name="viewport"
-            content="minimum-scale=1, initial-scale=1, width=device-width"
-          /> */}
           <link rel="canonical" href="https://gilbertly.com/" />
           <link
             href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap"
             rel="stylesheet"
           />
         </Head>
-        <body>
+        <body className="bg-gray-50 dark:bg-slate-900">
           <Main />
           <NextScript />
         </body>
