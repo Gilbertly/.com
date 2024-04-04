@@ -42,7 +42,7 @@ jobs:
         id: deployment
         uses: cloudflare/pages-action@v1
         with:
-          wranglerVersion: '3'
+          wranglerVersion: 3
           projectName: cfpages
           directory: .vercel/output/static
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
