@@ -5,7 +5,7 @@
       "@/pages/*": ["/src/pages/*"],
       "@/styles/*": ["/src/styles/*"],
       "@/icons/*": ["/public/icons/*"],
-      "@/components/*": ["/src/components/*"],
+      "@/components/*": ["/src/components/*"]
     },
     "baseUrl": ".",
     "outDir": "build",
@@ -24,7 +24,6 @@
     "strictNullChecks": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "suppressImplicitAnyIndexErrors": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
@@ -35,6 +34,6 @@
     "isolatedModules": true,
     "incremental": true
   },
-  "exclude": ["node_modules","build"],
+  "exclude": ["node_modules", "build"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

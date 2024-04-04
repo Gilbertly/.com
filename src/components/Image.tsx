@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import Image from 'next/image';
 
-const customLoader = ({ src }: any) => {
+const customLoader = (src: any) => {
   return src;
 };
 
