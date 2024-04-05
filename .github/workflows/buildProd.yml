@@ -38,7 +38,7 @@ jobs:
         uses: cloudflare/pages-action@v1
         with:
           wranglerVersion: '3'
-          projectName: cfpages
+          projectName: gilbertly-com
           directory: .vercel/output/static
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}

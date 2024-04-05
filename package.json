@@ -7,7 +7,7 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "biome lint ./src",
-    "deploy": "wrangler pages deploy .vercel/output/static --project-name com",
+    "deploy": "wrangler pages deploy .vercel/output/static --project-name gilbertly-com",
     "cf:build": "bun run lint && bunx @cloudflare/next-on-pages",
     "cf:preview": "bun run cf:build && wrangler pages dev .vercel/output/static",
     "cf:deploy": "bun run cf:build && bun run deploy"
