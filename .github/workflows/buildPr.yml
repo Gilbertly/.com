@@ -1,33 +1,33 @@
 name: Preview
-
 on:
   pull_request:
     types: [opened, synchronize]
-
-env:
-  NODE_VERSION: '18'
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 concurrency:
   group: ${{ github.head_ref }}
   cancel-in-progress: true
 
 jobs:
-  VercelDeploy:
+  BuildDeploy:
     runs-on: ubuntu-latest
+    environment: cfDev
+    permissions:
+      actions: read
+      contents: read
+      deployments: write
+      pull-requests: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: '20'
           registry-url: https://registry.npmjs.org
 
       - name: Restore & cache dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./node_modules
           key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
@@ -35,24 +35,16 @@ jobs:
             ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
             ${{ runner.os }}-
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Install Dependencies & Build
+        run: npm i -g bun && bun install && bun run cf:build
 
-      - name: Pull, Build, and Deploy to Vercel Preview
+      - name: Publish to Cloudflare Pages (Preview)
         id: deployment
-        run: |
-          vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
-          vercel build --token=${{ secrets.VERCEL_TOKEN }}
-          vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }} > deployment-url.txt
-          echo "url=`cat deployment-url.txt`" >> $GITHUB_OUTPUT
-
-      - name: Comment on PR
-        uses: actions/github-script@v5
+        uses: cloudflare/pages-action@v1
         with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '✅ Preview Url: ${{steps.deployment.outputs.url}}'
-            })
+          wranglerVersion: 3
+          projectName: gilbertly-com
+          directory: .vercel/output/static
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
