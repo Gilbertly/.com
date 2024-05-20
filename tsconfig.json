@@ -1,11 +1,21 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/public/*": ["/public/*"],
-      "@/pages/*": ["/src/pages/*"],
-      "@/styles/*": ["/src/styles/*"],
-      "@/icons/*": ["/public/icons/*"],
-      "@/components/*": ["/src/components/*"]
+      "@/public/*": [
+        "/public/*"
+      ],
+      "@/pages/*": [
+        "/src/pages/*"
+      ],
+      "@/styles/*": [
+        "/src/styles/*"
+      ],
+      "@/icons/*": [
+        "/public/icons/*"
+      ],
+      "@/components/*": [
+        "/src/components/*"
+      ]
     },
     "baseUrl": ".",
     "outDir": "build",
@@ -13,7 +23,11 @@
     "target": "es6",
     "jsx": "preserve",
     "moduleResolution": "node",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "sourceMap": true,
     "allowJs": true,
     "noUnusedLocals": true,
@@ -32,8 +46,21 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "incremental": true
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "exclude": ["node_modules", "build"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "exclude": [
+    "node_modules",
+    "build"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ]
 }
