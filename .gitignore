@@ -75,12 +75,13 @@ typings/
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 
-# Next.js build output
-.next
-
-# Nuxt.js build / generate output
-.nuxt
+# Build output
+.vinxi
+.output
 dist
+
+# TanStack Router (auto-generated)
+src/routeTree.gen.ts
 
 # Gatsby files
 .cache/
@@ -104,8 +105,6 @@ dist
 .tern-port
 
 # project-specific
-next-env.d.ts
 build/**
 .cache/**
-.vercel
 .wrangler

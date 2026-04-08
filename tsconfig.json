@@ -1,39 +1,25 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/public/*": ["/public/*"],
-      "@/pages/*": ["/src/pages/*"],
-      "@/styles/*": ["/src/styles/*"],
-      "@/icons/*": ["/public/icons/*"],
-      "@/components/*": ["/src/components/*"]
+      "@/styles/*": ["src/styles/*"],
+      "@/components/*": ["src/components/*"]
     },
     "baseUrl": ".",
-    "outDir": "build",
-    "module": "esnext",
-    "target": "es6",
-    "jsx": "preserve",
-    "moduleResolution": "node",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "sourceMap": true,
-    "allowJs": true,
-    "noUnusedLocals": true,
-    "preserveConstEnums": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "skipLibCheck": true,
+    "module": "ESNext",
+    "target": "ES2022",
+    "jsx": "react-jsx",
+    "moduleResolution": "bundler",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "strict": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
     "noEmit": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "incremental": true
+    "isolatedModules": true
   },
-  "exclude": ["node_modules", "build"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "exclude": ["node_modules", "dist", ".wrangler", ".output"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "vite.config.ts"]
 }
