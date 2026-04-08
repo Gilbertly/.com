@@ -1,3 +1,19 @@
+# [3.0.0](https://github.com/Gilbertly/.com/compare/v2.3.0...v3.0.0) (2026-04-08)
+
+
+### Bug Fixes
+
+* remove turbobuild for now ([4267930](https://github.com/Gilbertly/.com/commit/4267930e610e754b6197a31de003ed7131e288fa))
+* rename project on cloudflare ([0ccaee8](https://github.com/Gilbertly/.com/commit/0ccaee881ca8d0654a61cd7aff569d0682bb8ce8))
+* restore semantic release in prod workflow ([1296302](https://github.com/Gilbertly/.com/commit/12963025cc07428fdc52790c1fe1a8b7242d4c7a))
+
+
+### Features
+
+* add vercel deployment config ([3fc62cd](https://github.com/Gilbertly/.com/commit/3fc62cd7e53d89eb44ae8b0ecf074dd6d94fe2b4))
+* add vercel.json config file ([fe56c75](https://github.com/Gilbertly/.com/commit/fe56c759df2c1a1a68a7d7f4190d8a17588152b0))
+* init basic pages; blog & projects ([61c5d3d](https://github.com/Gilbertly/.com/commit/61c5d3d7175fa2ed441922b9314e5bec305f9b6b))
+
 # [2.3.0](https://github.com/Gilbertly/.com/compare/v2.2.0...v2.3.0) (2023-01-08)
 
 
