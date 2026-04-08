@@ -4,5 +4,9 @@
   "compatibility_date": "2026-04-08",
   "compatibility_flags": ["nodejs_compat"],
   "main": "@tanstack/react-start/server-entry",
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
+  "routes": [
+    { "pattern": "gilbertly.com", "custom_domain": true },
+    { "pattern": "www.gilbertly.com", "custom_domain": true }
+  ]
 }
