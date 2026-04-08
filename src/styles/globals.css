@@ -1,3 +1,42 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-secondary: #555555;
+  --color-accent: #2c3e50;
+  --color-accent-hover: #4ca1af;
+  --color-border: #e5e7eb;
+}
+
+.accent-link {
+  color: var(--color-accent);
+}
+
+.accent-link:hover {
+  color: var(--color-accent-hover);
+}
+
+.dark {
+  --color-bg: #111111;
+  --color-text: #ededed;
+  --color-text-secondary: #a0a0a0;
+  --color-accent: #4ca1af;
+  --color-accent-hover: #6dcbd9;
+  --color-border: #2a2a2a;
+}
